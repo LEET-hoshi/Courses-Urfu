@@ -1,0 +1,20 @@
+using System;
+
+namespace DistanceTask;
+
+public static class DistanceTask
+{
+    // Расстояние от точки (x, y) до отрезка AB с координатами A(ax, ay), B(bx, by)
+    public static double GetDistanceToSegment(double ax, double ay, double bx, double by, double x, double y)
+    {
+        if ((y - by) * (ay - by) +(x - bx) * (ax - bx) < 0 
+            || (y - ay) * (by - ay) + (x - ax) * (bx - ax) < 0)
+            return Math.Min(Math.Sqrt((y - ay) * (y - ay) + (x - ax) * (x - ax)),
+                Math.Sqrt((y - by) * (y - by) +(x - bx) * (x - bx)));
+        else if (ax == bx && ay == by)
+            return Math.Sqrt((y - ay) * (y - ay) + (x - ax) * (x - ax));
+        else
+            return Math.Abs((bx - ax) * (y - ay) - (by - ay) * (x - ax))
+                / Math.Sqrt((bx - ax) * (bx - ax) + (by - ay) * (by - ay));
+    }
+}
