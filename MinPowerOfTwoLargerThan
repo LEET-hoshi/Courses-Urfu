@@ -1,0 +1,9 @@
+private static int GetMinPowerOfTwoLargerThan(int number)
+{
+    int x = 1;
+    while (x <= number)
+	{
+		x *= 2;
+	}
+    return x;
+}
